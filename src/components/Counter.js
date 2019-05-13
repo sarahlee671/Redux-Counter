@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { increment, decrement, INCREMENT } from '../actions';
+import { increment, decrement } from '../actions';
 
 class Counter extends Component {
 
@@ -17,6 +17,9 @@ class Counter extends Component {
     incrementAsync = () => {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        setTimeout(() => {
+            this.props.increment()
+        }, 1000)
     };
 
     render() {
@@ -37,9 +40,9 @@ class Counter extends Component {
                 <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
-                {/* <button onClick={this.incrementAsync}>
+                <button onClick={this.incrementAsync}>
                     Increment async
-                </button>  */}
+                </button> 
             </p>
         );
     }
